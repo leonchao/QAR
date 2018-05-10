@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/html">
+        <file>build/ol-debug.js</file>
+        <file>build/ol-deps.js</file>
+        <file>build/ol.js</file>
+        <file>css/ol.css</file>
+        <file>airplane.png</file>
+        <file>airplanefault.png</file>
+        <file>Map.html</file>
+        <file>qwebchannel.js</file>
+    </qresource>
+</RCC>

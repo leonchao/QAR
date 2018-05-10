@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mymap</title>
+    <link rel="stylesheet" href="css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="build/ol.js"></script>
+    <script type="text/javascript" src="qwebchannel.js"></script>
+  </head>
+  <style>
+  body{margin:0px;padding:0px;}
+  </style>
+  <body>
+    <div id="map" class="map"></div>
+    <div id="popup" class="ol-popup">
+    <div id="popup-content"></div>
+    <script>
+            autodivheight();
+            function autodivheight(){ //函数：获取尺寸
+                    //获取浏览器窗口高度
+                    var winHeight=0;
+                    if (window.innerHeight)
+                            winHeight = window.innerHeight;
+                    else if ((document.body) && (document.body.clientHeight))
+                            winHeight = document.body.clientHeight;
+                    //通过深入Document内部对body进行检测，获取浏览器窗口高度
+                    if (document.documentElement && document.documentElement.clientHeight)
+                            winHeight = document.documentElement.clientHeight;
+                    //DIV高度为浏览器窗口的高度
+                    document.getElementById("map").style.height= winHeight +"px";
+
+            }
+            window.onresize=autodivheight; //浏览器窗口发生变化时同时变化DIV高度
+      </script>
+
+    <script>
+        var container = document.getElementById('popup');
+        var cont = document.getElementById('popup-content');
+        var overlay = new ol.Overlay({
+            element:container,
+            autoPan:true
+            });
+
+        //地图中心点
+        var center = ol.proj.transform([110.06667, 14.66667], 'EPSG:4326', 'EPSG:3857');
+
+        //矢量图层源
+        var vectorSource = new ol.source.Vector();
+
+        //矢量图层
+        var pointLayer = new ol.layer.Vector({
+               source: vectorSource
+           });
+
+        //地图图层
+        var rootLayer = new ol.layer.Tile({
+            source: new ol.source.XYZ({
+            url: 'Map_new/{z}/{x}/{y}.png',
+            wrapX: false
+            })
+        });
+
+        //创建地图
+        var map = new ol.Map({
+            logo: false,                //不显示openlayers的logo
+            overlays: [overlay],
+            //添加图层
+            layers: [
+              rootLayer,
+              pointLayer
+            ],
+            renderer: 'canvas',
+            target: 'map',
+            //添加视图
+            view: new ol.View({
+            center: center,
+            zoom: 4,
+            minZoom: 3,
+            maxZoom:8
+        })
+      });
+      //飞机轨迹显示的样式
+      var styleLine = new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            width: 3,
+            color: [255, 0, 0, 1]
+        })
+      });
+
+      var selectSingleClick = new ol.interaction.Select({
+      });
+      map.addInteraction(selectSingleClick);
+      var focusOnAircraft = false;
+      var focusAircraft = "";
+      var aircrafts = [];
+      //Qt 与页面交互
+      window.onload = function () {
+          new QWebChannel(qt.webChannelTransport,function (channel){
+              var content = channel.objects.content;
+              //设定某个航班为焦点
+              content.setFocusAircraft.connect(function (aircraftNum,getFocus){
+                if(vectorSource.getFeatureById(aircraftNum) == null)
+                {
+                    return;
+                }
+                focusAircraft = aircraftNum;
+                focusOnAircraft = getFocus;
+              })
+
+              //在地图上点击选中一个飞机，将航班号传给主程序
+              selectSingleClick.on('select', function(event){
+                var feature = event.selected[0];
+                var aircraftNum = feature.getId();
+                if(aircraftNum == undefined || aircraftNum == null)
+                {
+                    return;
+                }
+                content.onSetSelectedPlane(feature.getId());
+              })
+
+              //设定某个航班号的坐标位置
+              content.setPosition.connect(function (aircraftNum, latitude, longitude, rotation) {
+                //航班未添加到地图中-返回
+                if(vectorSource.getFeatureById(aircraftNum) == null)
+                {
+                    return;
+                }
+                var newLocation = ol.proj.fromLonLat([longitude, latitude]);
+                var aircraft = vectorSource.getFeatureById(aircraftNum);
+
+                aircraft.getStyle().getImage().setRotation(rotation);
+                aircraft.setGeometry(new ol.geom.Point(newLocation));
+
+                //绘制航班轨迹
+                var line = vectorSource.getFeatureById(aircraftNum + "line");
+                line.getGeometry().appendCoordinate(newLocation);
+                if(aircraftNum == focusAircraft && focusOnAircraft)
+                    map.getView().setCenter(newLocation);
+              })
+
+              //设定飞机的朝向
+              content.setRotation.connect(function (aircraftNum, rotation) {
+                if(vectorSource.getFeatureById(aircraftNum) == null)
+                {
+                    return;
+                }
+                var aircraft = vectorSource.getFeatureById(aircraftNum);
+                var style = aircraft.getStyle();
+                style.getImage().setRotation(rotation);
+                style.getImage().src = 'airplanefault.png';
+                aircraft.setStyle(style);
+              })
+
+              //添加一个航班到地图上
+              content.addAirplane.connect(function (aircraftNum, latitude, longitude, rotation) {
+                var position = ol.proj.fromLonLat([longitude,latitude]);
+                if(vectorSource.getFeatureById(aircraftNum) != null)
+                {
+                    return;
+                }
+                var line = new ol.Feature({
+                    geometry: new ol.geom.LineString()
+                });
+                line.getGeometry().appendCoordinate(position);
+                line.setStyle(styleLine);
+                line.setId(aircraftNum + "line");
+                vectorSource.addFeature(line);
+                var point = new ol.Feature({
+                    geometry: new ol.geom.Point(position),
+                });
+                point.setId(aircraftNum);
+                var styleGood = new ol.style.Style({
+                  image: new ol.style.Icon({
+                      anchor: [24, 24],
+                      anchorXUnits: 'pixels',
+                      anchorYUnits: 'pixels',
+                      src: 'airplane.png'
+                  }),
+                  text: new ol.style.Text({
+                      text: aircraftNum,
+                      fill: new ol.style.Fill({
+                            color: 'red'
+                        })
+                  })
+                });
+                point.setStyle(styleGood);
+                point.getStyle().getImage().setRotation(rotation);
+                //map.getView().setCenter(position);
+                vectorSource.addFeature(point);
+                aircrafts = vectorSource.getFeatures();
+              })
+
+              //设置飞机的状态 是否异常
+              content.setPlaneState.connect(function (aircraftNum,isFault){
+                if(vectorSource.getFeatureById(aircraftNum) == null)
+                {
+                    return;
+                }
+                var aircraft = vectorSource.getFeatureById(aircraftNum);
+                var rotation = aircraft.getStyle().getImage().getRotation();
+                var styleBad = new ol.style.Style({
+                  image: new ol.style.Icon({
+                      anchor: [24, 24],
+                      anchorXUnits: 'pixels',
+                      anchorYUnits: 'pixels',
+                      src: 'airplanefault.png'
+                  })
+                });
+                var styleGood = new ol.style.Style({
+                  image: new ol.style.Icon({
+                      anchor: [24, 24],
+                      anchorXUnits: 'pixels',
+                      anchorYUnits: 'pixels',
+                      src: 'airplane.png'
+                  })
+                });
+                if(isFault)
+                {
+                    aircraft.setStyle(styleBad);
+                    aircraft.getStyle().getImage().setRotation(rotation);
+                }
+                else
+                {
+                    aircraft.setStyle(styleGood);
+                    aircraft.getStyle().getImage().setRotation(rotation);
+                }
+              })
+
+              //从地图上删除一个航班的信息
+              content.deleteAircraft.connect(function (aircraftNum){
+                //该航班不存在
+                if(vectorSource.getFeatureById(aircraftNum) == null)
+                {
+                    return;
+                }
+                var aircraft = vectorSource.getFeatureById(aircraftNum);
+                var aircraftLine = vectorSource.getFeatureById(aircraftNum + "line");
+                //删除飞机
+                vectorSource.removeFeature(aircraft);
+                //删除飞机轨迹
+                vectorSource.removeFeature(aircraftLine);
+              })
+          })
+      }
+    </script>
+  </body>
+</html>
