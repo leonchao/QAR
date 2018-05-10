@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PanelFull</class>
+ <widget class="QWidget" name="PanelFull">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2946</width>
+    <height>1656</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="font">
+   <font>
+    <stylestrategy>PreferDefault</stylestrategy>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="446,634">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widgetNull" native="true">
+     <widget class="QLabel" name="label_time">
+      <property name="geometry">
+       <rect>
+        <x>2810</x>
+        <y>10</y>
+        <width>130</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 170, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <zorder>label_time</zorder>
+     <zorder>widgetPanel</zorder>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widgetPanel" native="true">
+     <property name="styleSheet">
+      <string notr="true">#widgetPanel{
+	border-image: url(:/background.png);
+}</string>
+     </property>
+     <widget class="QWidget" name="widgetPFD" native="true">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>379</y>
+        <width>495</width>
+        <height>492</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_PFD">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="widgetND" native="true">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>379</y>
+        <width>495</width>
+        <height>492</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_ND">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="widgetMFD" native="true">
+      <property name="geometry">
+       <rect>
+        <x>1898</x>
+        <y>379</y>
+        <width>495</width>
+        <height>492</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_MFD">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="widgetECAM" native="true">
+      <property name="geometry">
+       <rect>
+        <x>1369</x>
+        <y>379</y>
+        <width>495</width>
+        <height>492</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_ECAM">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+     <widget class="PushButton" name="pushButtonLand">
+      <property name="geometry">
+       <rect>
+        <x>152</x>
+        <y>210</y>
+        <width>62</width>
+        <height>63</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/AUTO-LAND-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/AUTO-LAND-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_master_cau">
+      <property name="geometry">
+       <rect>
+        <x>596</x>
+        <y>216</y>
+        <width>62</width>
+        <height>64</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/MASTER-CAUT-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/MASTER-CAUT-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_master_warn">
+      <property name="geometry">
+       <rect>
+        <x>596</x>
+        <y>125</y>
+        <width>61</width>
+        <height>65</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/MASTER-WARN-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/MASTER-WARN-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_FD">
+      <property name="geometry">
+       <rect>
+        <x>1010</x>
+        <y>254</y>
+        <width>47</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/FD-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/FD-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_LS">
+      <property name="geometry">
+       <rect>
+        <x>1067</x>
+        <y>253</y>
+        <width>47</width>
+        <height>33</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/LS-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/LS-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_CSTR">
+      <property name="geometry">
+       <rect>
+        <x>1144</x>
+        <y>64</y>
+        <width>47</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/CSTR-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/CSTR-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_WPT">
+      <property name="geometry">
+       <rect>
+        <x>1195</x>
+        <y>64</y>
+        <width>47</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/WPT-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/WPT-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_VOR">
+      <property name="geometry">
+       <rect>
+        <x>1244</x>
+        <y>64</y>
+        <width>47</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/VOR.D-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/VOR.D-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_NDB">
+      <property name="geometry">
+       <rect>
+        <x>1294</x>
+        <y>64</y>
+        <width>47</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/NDB-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/NDB-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_ARPT">
+      <property name="geometry">
+       <rect>
+        <x>1345</x>
+        <y>64</y>
+        <width>47</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/ARPT-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/ARPT-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_LOC">
+      <property name="geometry">
+       <rect>
+        <x>1619</x>
+        <y>237</y>
+        <width>65</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/LOC-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/LOC-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_AP1">
+      <property name="geometry">
+       <rect>
+        <x>1726</x>
+        <y>163</y>
+        <width>53</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/AP-1-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/AP-1-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_AP2">
+      <property name="geometry">
+       <rect>
+        <x>1789</x>
+        <y>163</y>
+        <width>53</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/AP-2-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/AP-2-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_ATHR">
+      <property name="geometry">
+       <rect>
+        <x>1756</x>
+        <y>224</y>
+        <width>53</width>
+        <height>56</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/A-THR-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/A-THR-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_APPR">
+      <property name="geometry">
+       <rect>
+        <x>2050</x>
+        <y>235</y>
+        <width>69</width>
+        <height>47</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/APPR-off.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/APPR-on.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="PushButton" name="pushButton_GEAR">
+      <property name="geometry">
+       <rect>
+        <x>2624</x>
+        <y>64</y>
+        <width>132</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{    
+    border:none;
+	border-image: url(:/gearDown.png);
+}
+
+QPushButton:checked
+{
+    border-image: url(:/gearUp.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_BARO">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>114</y>
+        <width>68</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 127);</string>
+      </property>
+      <property name="text">
+       <string>1013</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_SPD">
+      <property name="geometry">
+       <rect>
+        <x>1480</x>
+        <y>70</y>
+        <width>58</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 175, 37);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_HDG">
+      <property name="geometry">
+       <rect>
+        <x>1587</x>
+        <y>69</y>
+        <width>90</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 175, 37);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_ALT">
+      <property name="geometry">
+       <rect>
+        <x>1874</x>
+        <y>71</y>
+        <width>91</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>5</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 175, 37);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_VS">
+      <property name="geometry">
+       <rect>
+        <x>2047</x>
+        <y>69</y>
+        <width>85</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>5</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 175, 37);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="Pedal" name="quickWidget">
+      <property name="geometry">
+       <rect>
+        <x>16</x>
+        <y>598</y>
+        <width>269</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="Rocker" name="quickWidget_joystick">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>397</y>
+        <width>204</width>
+        <height>197</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="Oil" name="quickWidget_throttle">
+      <property name="geometry">
+       <rect>
+        <x>2407</x>
+        <y>373</y>
+        <width>516</width>
+        <height>580</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_gearleft">
+      <property name="geometry">
+       <rect>
+        <x>2226</x>
+        <y>74</y>
+        <width>59</width>
+        <height>58</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/LDG-3.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/LDG-4.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_gearmain">
+      <property name="geometry">
+       <rect>
+        <x>2285</x>
+        <y>74</y>
+        <width>57</width>
+        <height>57</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/LDG-3.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/LDG-4.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_gearright">
+      <property name="geometry">
+       <rect>
+        <x>2343</x>
+        <y>74</y>
+        <width>58</width>
+        <height>57</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/LDG-3.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/LDG-4.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="RotaryButton" name="quickWidget_1">
+      <property name="geometry">
+       <rect>
+        <x>1169</x>
+        <y>147</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="RotaryButton" name="quickWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>1311</x>
+        <y>147</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_BRK_MED">
+      <property name="geometry">
+       <rect>
+        <x>2278</x>
+        <y>196</y>
+        <width>58</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/AUTO-BRK-2.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/AUTO-BRK-1.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_BRK_LO">
+      <property name="geometry">
+       <rect>
+        <x>2218</x>
+        <y>196</y>
+        <width>57</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/AUTO-BRK-2.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/AUTO-BRK-1.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_BRK_MAX">
+      <property name="geometry">
+       <rect>
+        <x>2353</x>
+        <y>196</y>
+        <width>57</width>
+        <height>56</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/AUTO-BRK-2.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/AUTO-BRK-1.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_TERR_ON_ND">
+      <property name="geometry">
+       <rect>
+        <x>2540</x>
+        <y>138</y>
+        <width>56</width>
+        <height>54</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QToolButton
+{    
+    border:none;
+	border-image: url(:/TREE-ON-ND-2.png);
+}
+
+QToolButton:checked
+{
+    border-image: url(:/TREE-ON-ND-1.png);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header>QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+  <customwidget>
+   <class>PushButton</class>
+   <extends>QPushButton</extends>
+   <header>pushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Pedal</class>
+   <extends>QQuickWidget</extends>
+   <header>pedal.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Rocker</class>
+   <extends>QQuickWidget</extends>
+   <header>rocker.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Oil</class>
+   <extends>QQuickWidget</extends>
+   <header>oil.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RotaryButton</class>
+   <extends>QQuickWidget</extends>
+   <header>rotarybutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
